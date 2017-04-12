@@ -13,12 +13,7 @@ import java.time.LocalDateTime;
 //        @NamedQuery(name = "getUniqueStoreVisitors", query = "select o from Observation o left join fetch o.router r left join fetch r.store s " +
 //                "where s.id in (:id) and o.rssi >= 15 and o.seenTime >= (:dateFrom) group by o.clientMac")
 //})
-public class Observation implements Serializable {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private Long id;
+public class Observation  extends BaseModel {
 
     @Column(name = "clientMac")
     private String clientMac;
@@ -52,14 +47,6 @@ public class Observation implements Serializable {
     private Router router;
 
     public Observation() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getClientMac() {
