@@ -68,7 +68,7 @@ public class JpaConfiguration {
     public Properties jpaProperties() {
         Properties jpaProps = new Properties();
         jpaProps.put("hibernate.dialect", hibernateDialect);
-        jpaProps.put("hibernate.hbm2ddl.auto", "create");
+        jpaProps.put("hibernate.hbm2ddl.auto", "update");
         return jpaProps;
     }
 

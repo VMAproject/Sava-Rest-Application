@@ -11,7 +11,7 @@ public class Router implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
+    @Column(name = "router_id")
     private Long id;
 
     @Column(name = "apMac")
@@ -21,11 +21,11 @@ public class Router implements Serializable {
     private String routerName;
 
     @ManyToOne()
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "event_id")
     private Event event;
 
     @ManyToOne()
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "store_id")
     private Store store;
 
     @OneToMany(mappedBy = "router")

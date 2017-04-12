@@ -48,7 +48,7 @@ public class Observation implements Serializable {
     private LocalDateTime seenTime;
 
     @ManyToOne()
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "router_id")
     private Router router;
 
     public Observation() {
