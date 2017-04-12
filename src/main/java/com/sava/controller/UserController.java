@@ -2,7 +2,7 @@ package com.sava.controller;
 
 
 import com.sava.model.User;
-import com.sava.repository.UserRepository;
+import com.sava.repository.interfaces.UserRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;

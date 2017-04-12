@@ -1,6 +1,6 @@
 package com.sava.service;
 
-import com.sava.repository.UserRepository;
+import com.sava.repository.interfaces.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

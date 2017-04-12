@@ -1,4 +1,4 @@
-package com.sava.repository;
+package com.sava.repository.interfaces;
 
 
 import com.sava.model.User;

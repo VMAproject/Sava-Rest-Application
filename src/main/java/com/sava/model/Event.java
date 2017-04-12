@@ -1,5 +1,7 @@
 package com.sava.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -21,9 +23,11 @@ public class Event implements Serializable {
     @Column(name = "location")
     private String location;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Column(name = "date_from")
     private LocalDateTime dateFrom;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Column(name = "date_to")
     private LocalDateTime dateTo;
 
