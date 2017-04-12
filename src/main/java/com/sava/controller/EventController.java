@@ -2,6 +2,10 @@ package com.sava.controller;
 
 import com.sava.model.Event;
 import com.sava.repository.interfaces.EventRepository;
+import org.jsondoc.core.annotation.Api;
+import org.jsondoc.core.annotation.ApiMethod;
+import org.jsondoc.core.annotation.ApiPathParam;
+import org.jsondoc.core.pojo.ApiStage;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +14,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v2")
+@Api(
+        name = "Event API",
+        description = "Provides a list of methods that manage Events"
+)
 public class EventController {
 
     private EventRepository eventRepository;
@@ -20,29 +28,35 @@ public class EventController {
     }
 
     @RequestMapping(value = "/events", method = RequestMethod.POST)
+    @ApiMethod(description = "Create one Event and save it to the database. Date pattern: {dd-MM-yyyy HH:mm}")
     public Event create(@RequestBody Event event) {
         return eventRepository.saveAndFlush(event);
     }
 
     @RequestMapping(value = "/events/{id}", method = RequestMethod.GET)
-    public Event get(@PathVariable Long id) {
+    @ApiMethod(description = "Get one Event from the database by id")
+    public Event get(@ApiPathParam(name = "id") @PathVariable Long id) {
         return eventRepository.findOne(id);
     }
 
     @RequestMapping(value = "/events", method = RequestMethod.GET)
+    @ApiMethod(description = "Get all Events from the database")
     public List<Event> list() {
         return eventRepository.findAll();
     }
 
     @RequestMapping(value = "/events/{id}", method = RequestMethod.PUT)
-    public Event update(@PathVariable Long id, @RequestBody Event event) {
+    @ApiMethod(description = "Edit Event's fields by id and save it to the database")
+    public Event update(@ApiPathParam(name = "id") @PathVariable Long id,
+                        @RequestBody Event event) {
         Event loadedEvent = eventRepository.findOne(id);
         BeanUtils.copyProperties(event, loadedEvent);
         return eventRepository.saveAndFlush(loadedEvent);
     }
 
     @RequestMapping(value = "/events/{id}", method = RequestMethod.DELETE)
-    public void delete(@PathVariable Long id) {
+    @ApiMethod(description = "Delete one Event from the database by id")
+    public void delete(@ApiPathParam(name = "id") @PathVariable Long id) {
         Event loadedEvent = eventRepository.findOne(id);
         eventRepository.delete(loadedEvent);
     }
