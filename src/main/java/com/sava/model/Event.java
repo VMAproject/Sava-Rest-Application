@@ -23,11 +23,11 @@ public class Event {
     @Column(name = "location")
     private String location;
 
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "dd-MM-yyyy HH:mm")
     @Column(name = "date_from")
     private LocalDateTime dateFrom;
 
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "dd-MM-yyyy HH:mm")
     @Column(name = "date_to")
     private LocalDateTime dateTo;
 
