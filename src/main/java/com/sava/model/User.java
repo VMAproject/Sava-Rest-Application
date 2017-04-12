@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @Entity
-@Table(name = "\"User\"")
+@Table(name = "\"user\"")
 //@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id",scope=User.class)
 public class User extends BaseModel implements Serializable, UserDetails {
 
