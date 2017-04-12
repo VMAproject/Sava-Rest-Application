@@ -1,24 +1,29 @@
 package com.sava.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "blackBook")
-public class BlackBook implements Serializable {
+@Table(name = "\"blackBook\"")
+public class BlackBook extends BaseModel implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Long id;
+    @JsonIgnore
+    private static final long serialVersionUID = 6534751544232619891L;
 
-    @Column(name = "name")
+    @Column
     private String name;
 
-    @Column(name = "clientMac")
+    @Column
     private String clientMac;
 
     public BlackBook() {
+    }
+
+    public BlackBook(String name, String clientMac) {
+        this.name = name;
+        this.clientMac = clientMac;
     }
 
     public Long getId() {
