@@ -3,7 +3,6 @@ package com.sava.model;
 import javax.persistence.*;
 import java.util.Set;
 
-
 @Entity
 @Table(name = "network")
 public class Network {

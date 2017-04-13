@@ -26,25 +26,25 @@ public class EventController {
         this.eventRepository = eventRepository;
     }
 
-    @PostMapping(value = "/events")
+    @RequestMapping(value = "/events", method = RequestMethod.POST)
     @ApiMethod(description = "Create one Event and save it to the database. Date pattern: {dd-MM-yyyy HH:mm}")
     public Event create(@RequestBody Event event) {
         return eventRepository.saveAndFlush(event);
     }
 
-    @GetMapping(value = "/events/{id}")
+    @RequestMapping(value = "/events/{id}", method = RequestMethod.GET)
     @ApiMethod(description = "Get one Event from the database by id")
     public Event get(@ApiPathParam(name = "id") @PathVariable Long id) {
         return eventRepository.findOne(id);
     }
 
-    @GetMapping(value = "/events")
+    @RequestMapping(value = "/events", method = RequestMethod.GET)
     @ApiMethod(description = "Get all Events from the database")
     public List<Event> list() {
         return eventRepository.findAll();
     }
 
-    @PutMapping(value = "/events/{id}")
+    @RequestMapping(value = "/events/{id}", method = RequestMethod.PUT)
     @ApiMethod(description = "Edit Event's fields by id and save it to the database")
     public Event update(@ApiPathParam(name = "id") @PathVariable Long id,
                         @RequestBody Event event) {
@@ -53,7 +53,7 @@ public class EventController {
         return eventRepository.saveAndFlush(loadedEvent);
     }
 
-    @DeleteMapping(value = "/events/{id}")
+    @RequestMapping(value = "/events/{id}", method = RequestMethod.DELETE)
     @ApiMethod(description = "Delete one Event from the database by id")
     public void delete(@ApiPathParam(name = "id") @PathVariable Long id) {
         Event loadedEvent = eventRepository.findOne(id);
