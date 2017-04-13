@@ -32,19 +32,19 @@ public class EventController {
         return eventRepository.saveAndFlush(event);
     }
 
-    @RequestMapping(value = "/events/{id}", method = RequestMethod.GET)
+    @GetMapping(value = "/events/{id}")
     @ApiMethod(description = "Get one Event from the database by id")
     public Event get(@ApiPathParam(name = "id") @PathVariable Long id) {
         return eventRepository.findOne(id);
     }
 
-    @RequestMapping(value = "/events", method = RequestMethod.GET)
+    @GetMapping(value = "/events")
     @ApiMethod(description = "Get all Events from the database")
     public List<Event> list() {
         return eventRepository.findAll();
     }
 
-    @RequestMapping(value = "/events/{id}", method = RequestMethod.PUT)
+    @PutMapping(value = "/events/{id}")
     @ApiMethod(description = "Edit Event's fields by id and save it to the database")
     public Event update(@ApiPathParam(name = "id") @PathVariable Long id,
                         @RequestBody Event event) {
@@ -53,7 +53,7 @@ public class EventController {
         return eventRepository.saveAndFlush(loadedEvent);
     }
 
-    @RequestMapping(value = "/events/{id}", method = RequestMethod.DELETE)
+    @DeleteMapping(value = "/events/{id}")
     @ApiMethod(description = "Delete one Event from the database by id")
     public void delete(@ApiPathParam(name = "id") @PathVariable Long id) {
         Event loadedEvent = eventRepository.findOne(id);

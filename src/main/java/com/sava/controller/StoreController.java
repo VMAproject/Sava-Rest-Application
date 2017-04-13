@@ -27,25 +27,25 @@ public class StoreController {
         this.storeRepository = storeRepository;
     }
 
-    @RequestMapping(value = "/stores", method = RequestMethod.POST)
+    @PostMapping(value = "/stores")
     @ApiMethod(description = "Create one Store and save it to the database")
     public Store create(@RequestBody Store store) {
         return storeRepository.saveAndFlush(store);
     }
 
-    @RequestMapping(value = "/stores/{id}", method = RequestMethod.GET)
+    @GetMapping(value = "/stores/{id}")
     @ApiMethod(description = "Get one Store from the database by id")
     public Store get(@ApiPathParam(name = "id") @PathVariable Long id) {
         return storeRepository.findOne(id);
     }
 
-    @RequestMapping(value = "/stores", method = RequestMethod.GET)
+    @GetMapping(value = "/stores")
     @ApiMethod(description = "Get all Stores from the database")
     public List<Store> list() {
         return storeRepository.findAll();
     }
 
-    @RequestMapping(value = "/stores/{id}", method = RequestMethod.PUT)
+    @PutMapping(value = "/stores/{id}")
     @ApiMethod(description = "Edit Store's fields by id and save it to the database")
     public Store update(@ApiPathParam(name = "id") @PathVariable Long id, @RequestBody Event event) {
         Store loadedStore = storeRepository.findOne(id);
@@ -53,7 +53,7 @@ public class StoreController {
         return storeRepository.saveAndFlush(loadedStore);
     }
 
-    @RequestMapping(value = "/stores/{id}", method = RequestMethod.DELETE)
+    @DeleteMapping(value = "/stores/{id}")
     @ApiMethod(description = "Delete one Store from the database by id")
     public void delete(@ApiPathParam(name = "id") @PathVariable Long id) {
         Store loadedStore = storeRepository.findOne(id);
