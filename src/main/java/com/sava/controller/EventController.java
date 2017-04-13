@@ -26,7 +26,7 @@ public class EventController {
         this.eventRepository = eventRepository;
     }
 
-    @RequestMapping(value = "/events", method = RequestMethod.POST)
+    @PostMapping(value = "/events")
     @ApiMethod(description = "Create one Event and save it to the database. Date pattern: {dd-MM-yyyy HH:mm}")
     public Event create(@RequestBody Event event) {
         return eventRepository.saveAndFlush(event);

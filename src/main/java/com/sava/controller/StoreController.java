@@ -5,6 +5,7 @@ import com.sava.model.Store;
 import com.sava.repository.interfaces.StoreRepository;
 import org.jsondoc.core.annotation.Api;
 import org.jsondoc.core.annotation.ApiMethod;
+import org.jsondoc.core.annotation.ApiPathParam;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -34,7 +35,7 @@ public class StoreController {
 
     @RequestMapping(value = "/stores/{id}", method = RequestMethod.GET)
     @ApiMethod(description = "Get one Store from the database by id")
-    public Store get(@PathVariable Long id) {
+    public Store get(@ApiPathParam(name = "id") @PathVariable Long id) {
         return storeRepository.findOne(id);
     }
 
@@ -46,7 +47,7 @@ public class StoreController {
 
     @RequestMapping(value = "/stores/{id}", method = RequestMethod.PUT)
     @ApiMethod(description = "Edit Store's fields by id and save it to the database")
-    public Store update(@PathVariable Long id, @RequestBody Event event) {
+    public Store update(@ApiPathParam(name = "id") @PathVariable Long id, @RequestBody Event event) {
         Store loadedStore = storeRepository.findOne(id);
         BeanUtils.copyProperties(event, loadedStore);
         return storeRepository.saveAndFlush(loadedStore);
@@ -54,7 +55,7 @@ public class StoreController {
 
     @RequestMapping(value = "/stores/{id}", method = RequestMethod.DELETE)
     @ApiMethod(description = "Delete one Store from the database by id")
-    public void delete(@PathVariable Long id) {
+    public void delete(@ApiPathParam(name = "id") @PathVariable Long id) {
         Store loadedStore = storeRepository.findOne(id);
         storeRepository.delete(loadedStore);
     }
