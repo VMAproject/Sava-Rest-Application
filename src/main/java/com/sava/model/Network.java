@@ -21,6 +21,6 @@ public class Network {
     private Organization organization;
 
     @OneToMany(mappedBy = "network")
-    private Set<Router> routerts;
+    private Set<AccessPoint> routerts;
 
 }

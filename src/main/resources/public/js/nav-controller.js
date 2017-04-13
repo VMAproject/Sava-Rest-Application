@@ -1,6 +1,6 @@
 angular.module('navController', [])
     .controller('nav', function ($rootScope, $scope, $state, $http, AuthService, localStorageService) {
-        $scope.title = 'Traders app';
+        $scope.title = 'Sava';
         $scope.isUrl = function (url) {
             if (url === '#') return false;
             return ('#' + $state.$current.url.source + '/').indexOf(url + '/') === 0;
@@ -39,18 +39,18 @@ angular.module('navController', [])
             {
                 name: 'Users',
                 url: '#/users'
-            },
-            {
-                name: 'Suppliers',
-                url: '#/suppliers'
-            },
-            {
-                name: 'Categories',
-                url: '#/categories'
-            },
-            {
-                name: 'Products',
-                url: '#/products'
             }
+            // {
+            //     name: 'Suppliers',
+            //     url: '#/suppliers'
+            // },
+            // {
+            //     name: 'Categories',
+            //     url: '#/categories'
+            // },
+            // {
+            //     name: 'Products',
+            //     url: '#/products'
+            // }
         ]
     });
