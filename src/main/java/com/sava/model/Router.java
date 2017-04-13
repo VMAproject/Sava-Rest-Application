@@ -37,6 +37,11 @@ public class Router implements Serializable {
 //    @OneToMany(mappedBy = "router")
 //    private Set<ApFloor> apFloors = new HashSet<>();
 
+
+    @ManyToOne()
+    @JoinColumn(name = "network_id")
+    private Network network;
+
     public Router() {
     }
 

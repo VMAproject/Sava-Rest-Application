@@ -1,7 +1,6 @@
 package com.sava.model;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Entity
