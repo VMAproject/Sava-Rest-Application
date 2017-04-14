@@ -31,13 +31,6 @@ public class AccessPoint implements Serializable {
     @OneToMany(mappedBy = "accessPoint")
     private Set<Observation> observations = new HashSet<>();
 
-//    @OneToMany(mappedBy = "router")
-//    private Set<ApTag> apTags = new HashSet<>();
-//
-//    @OneToMany(mappedBy = "router")
-//    private Set<ApFloor> apFloors = new HashSet<>();
-
-
     @ManyToOne()
     @JoinColumn(name = "network_id")
     private Network network;
