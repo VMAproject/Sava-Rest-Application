@@ -1,17 +1,19 @@
 
-${AnsiColor.WHITE} .oooooo..o
-${AnsiColor.WHITE}d8P'    `Y8
-${AnsiColor.WHITE}Y88bo.       .oooo.   oooo    ooo  .oooo.
-${AnsiColor.WHITE} `"Y8888o.  `P  )88b   `88.  .8'  `P  )88b
-${AnsiColor.WHITE}     `"Y88b  .oP"888    `88..8'    .oP"888
-${AnsiColor.WHITE}oo     .d8P d8(  888     `888'    d8(  888
-${AnsiColor.WHITE}8""88888P'  `Y888""8o     `8'     `Y888""8o
-
+${AnsiColor.BLACK}   ________     __  ___      ___  __
+${AnsiColor.BLACK}  /"       )   /""\|"  \    /"  |/""\
+${AnsiColor.BLACK} (:   \___/   /    \\   \  //  //    \
+${AnsiColor.BLACK}  \___  \    /' /\  \\\  \/. .//' /\  \
+${AnsiColor.BLACK}   __/  \\  //  __'  \\.    ////  __'  \
+${AnsiColor.BLACK}  /" \   :)/   /  \\  \\\   //   /  \\  \
+${AnsiColor.BLACK} (_______/(___/    \___)\__/(___/    \___)
+${AnsiColor.WHITE}____________________________________________
 ${AnsiColor.GREEN}┌─┐┬ ┬┌─┐┌┬┐┌─┐┌┬┐  ┌─┐┌┐┌┌─┐┬ ┬ ┬┌┬┐┬┌─┐┌─┐
 ${AnsiColor.GREEN}└─┐└┬┘└─┐ │ ├┤ │││  ├─┤│││├─┤│ └┬┘ │ ││  └─┐
 ${AnsiColor.GREEN}└─┘ ┴ └─┘ ┴ └─┘┴ ┴  ┴ ┴┘└┘┴ ┴┴─┘┴  ┴ ┴└─┘└─┘
-${Ansi.CYAN}Copyright © 2017
+${Ansi.CYAN} Copyright © 2017
 
 ${Ansi.RED} :: Spring Boot${spring-boot.formatted-version} :: ${Ansi.DEFAULT}
+
+
 
 
