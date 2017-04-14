@@ -14,8 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v2")
-@Api(
-        name = "Store API",
+@Api(   name = "Store API",
         description = "Provides a list of methods that manage Stores"
 )
 public class StoreController {
