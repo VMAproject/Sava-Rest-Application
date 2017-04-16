@@ -12,11 +12,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v2")
-@Api(
-        name = "Event API",
-        description = "Provides a list of methods that manage Events"
-)
+@RequestMapping("/api")
+@Api(name = "Event API", description = "Provides a list of methods that manage Events")
 public class EventController {
 
     private EventRepository eventRepository;

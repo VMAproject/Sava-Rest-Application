@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 //        @NamedQuery(name = "getUniqueStoreVisitors", query = "select o from Observation o left join fetch o.accessPoint r left join fetch r.store s " +
 //                "where s.id in (:id) and o.rssi >= 15 and o.seenTime >= (:dateFrom) group by o.clientMac")
 //})
-public class Observation  extends BaseModel {
+public class Observation extends BaseModel {
 
     @Column(name = "clientMac")
     private String clientMac;
