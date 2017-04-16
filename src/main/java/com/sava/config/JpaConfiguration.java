@@ -32,8 +32,6 @@ import java.util.Properties;
 
 @Configuration
 @EnableJpaRepositories(basePackages = "com.sava.repository")
-@EnableAutoConfiguration
-@PropertySource("classpath:application.properties")
 @EnableTransactionManagement
 public class JpaConfiguration {
 
