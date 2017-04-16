@@ -17,25 +17,26 @@ import java.security.Principal;
 @RestController
 @RequestMapping("/")
 public class HomeController {
-	@Autowired
-	private UserRepository userRepository;
-	
-	@Autowired
-	private PasswordEncoder passwordEncoder;
-	
-	@RequestMapping(value="register", method= RequestMethod.POST)
-	public ResponseEntity<User> createUser(@RequestBody User user){
-		if (userRepository.findOneByUsername(user.getUsername()) != null) {
-			throw new RuntimeException("Username already exist");
-		}
-		
-		user.setPassword(passwordEncoder.encode(user.getPassword()));
-		
-		return new ResponseEntity<User>(userRepository.save(user), HttpStatus.CREATED);
-	}
-	
-	@RequestMapping("login")
-	public Principal user(Principal principal) {
-		return principal;
-	}	
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @RequestMapping(value = "register", method = RequestMethod.POST)
+    public ResponseEntity<User> createUser(@RequestBody User user) {
+        if (userRepository.findOneByUsername(user.getUsername()) != null) {
+            throw new RuntimeException("Username already exist");
+        }
+
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+
+        return new ResponseEntity<User>(userRepository.save(user), HttpStatus.CREATED);
+    }
+
+    @RequestMapping("login")
+    public Principal user(Principal principal) {
+        return principal;
+    }
 }
