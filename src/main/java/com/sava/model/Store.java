@@ -20,7 +20,7 @@ public class Store {
     private String location;
 
     @OneToMany(mappedBy = "store")
-    private Set<Router> routers = new HashSet<>();
+    private Set<AccessPoint> accessPoints = new HashSet<>();
 
     public Store() {
     }
@@ -49,11 +49,11 @@ public class Store {
         this.location = location;
     }
 
-    public Set<Router> getRouters() {
-        return routers;
+    public Set<AccessPoint> getAccessPoints() {
+        return accessPoints;
     }
 
-    public void setRouters(Set<Router> routers) {
-        this.routers = routers;
+    public void setAccessPoints(Set<AccessPoint> accessPoints) {
+        this.accessPoints = accessPoints;
     }
 }

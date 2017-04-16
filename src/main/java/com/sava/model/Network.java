@@ -3,7 +3,6 @@ package com.sava.model;
 import javax.persistence.*;
 import java.util.Set;
 
-
 @Entity
 @Table(name = "network")
 public class Network {
@@ -21,6 +20,6 @@ public class Network {
     private Organization organization;
 
     @OneToMany(mappedBy = "network")
-    private Set<Router> routerts;
+    private Set<AccessPoint> routerts;
 
 }

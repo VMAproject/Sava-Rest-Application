@@ -7,9 +7,9 @@ import java.time.LocalDateTime;
 @Table(name = "observation")
 //@NamedQueries({
 //        @NamedQuery(name = "getUniqueEventVisitors", query = "select o from Observation o " +
-//                "left join fetch o.router r left join fetch r.event e " +
+//                "left join fetch o.accessPoint r left join fetch r.event e " +
 //                "where o.rssi >= 15 and e.id = (:id) and o.seenTime between (:dateFrom) and (:dateTo) group by o.clientMac"),
-//        @NamedQuery(name = "getUniqueStoreVisitors", query = "select o from Observation o left join fetch o.router r left join fetch r.store s " +
+//        @NamedQuery(name = "getUniqueStoreVisitors", query = "select o from Observation o left join fetch o.accessPoint r left join fetch r.store s " +
 //                "where s.id in (:id) and o.rssi >= 15 and o.seenTime >= (:dateFrom) group by o.clientMac")
 //})
 public class Observation  extends BaseModel {
@@ -42,8 +42,8 @@ public class Observation  extends BaseModel {
     private LocalDateTime seenTime;
 
     @ManyToOne()
-    @JoinColumn(name = "router_id")
-    private Router router;
+    @JoinColumn(name = "access_point_id")
+    private AccessPoint accessPoint;
 
     public Observation() {
     }
@@ -120,11 +120,11 @@ public class Observation  extends BaseModel {
         this.seenTime = seenTime;
     }
 
-    public Router getRouter() {
-        return router;
+    public AccessPoint getAccessPoint() {
+        return accessPoint;
     }
 
-    public void setRouter(Router router) {
-        this.router = router;
+    public void setAccessPoint(AccessPoint accessPoint) {
+        this.accessPoint = accessPoint;
     }
 }

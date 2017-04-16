@@ -31,7 +31,7 @@ public class Event {
     private LocalDateTime dateTo;
 
     @OneToMany(mappedBy = "event")
-    private Set<Router> routers = new HashSet<>();
+    private Set<AccessPoint> accessPoints = new HashSet<>();
 
     public Event() {
     }
@@ -76,11 +76,11 @@ public class Event {
         this.dateTo = dateTo;
     }
 
-    public Set<Router> getRouters() {
-        return routers;
+    public Set<AccessPoint> getAccessPoints() {
+        return accessPoints;
     }
 
-    public void setRouters(Set<Router> routers) {
-        this.routers = routers;
+    public void setAccessPoints(Set<AccessPoint> accessPoints) {
+        this.accessPoints = accessPoints;
     }
 }
