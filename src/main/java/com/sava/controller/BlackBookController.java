@@ -78,7 +78,7 @@ public class BlackBookController {
         }
         blackBookService.saveBlackBook(blackBook);
         HttpHeaders httpHeaders = new HttpHeaders();
-        httpHeaders.setLocation(uriComponentsBuilder.path("/sava/blackBook/{id}").buildAndExpand(blackBook.getId()).toUri());
+        httpHeaders.setLocation(uriComponentsBuilder.path("/api/blackBook/{id}").buildAndExpand(blackBook.getId()).toUri());
         return new ResponseEntity<String>(httpHeaders, HttpStatus.CREATED);
     }
 
