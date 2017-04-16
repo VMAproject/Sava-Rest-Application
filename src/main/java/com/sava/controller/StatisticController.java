@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v2")
+@RequestMapping("/sava")
 public class StatisticController {
 
     private StatisticRepositoryImpl statisticRepository;
