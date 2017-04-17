@@ -9,7 +9,6 @@ import java.io.Serializable;
 import java.util.Objects;
 import java.util.StringJoiner;
 
-@Data
 @Entity
 @Table(name = "blackBook")
 public class BlackBook extends BaseModel implements Serializable {
@@ -28,6 +27,21 @@ public class BlackBook extends BaseModel implements Serializable {
         this.clientMac = clientMac;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getClientMac() {
+        return clientMac;
+    }
+
+    public void setClientMac(String clientMac) {
+        this.clientMac = clientMac;
+    }
 
     @Override
     public boolean equals(Object o) {

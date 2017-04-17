@@ -1,5 +1,7 @@
 package com.sava.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -19,6 +21,7 @@ public class Store {
     @Column(name = "location")
     private String location;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "store")
     private Set<AccessPoint> accessPoints = new HashSet<>();
 

@@ -1,17 +1,15 @@
 package com.sava.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Date;
+import java.util.Objects;
 
 @Entity
 @Table(name = "observation")
-//@NamedQueries({
-//        @NamedQuery(name = "getUniqueEventVisitors", query = "select o from Observation o " +
-//                "left join fetch o.accessPoint r left join fetch r.event e " +
-//                "where o.rssi >= 15 and e.id = (:id) and o.seenTime between (:dateFrom) and (:dateTo) group by o.clientMac"),
-//        @NamedQuery(name = "getUniqueStoreVisitors", query = "select o from Observation o left join fetch o.accessPoint r left join fetch r.store s " +
-//                "where s.id in (:id) and o.rssi >= 15 and o.seenTime >= (:dateFrom) group by o.clientMac")
-//})
 public class Observation extends BaseModel {
 
     @Column(name = "clientMac")
@@ -38,9 +36,11 @@ public class Observation extends BaseModel {
     @Column(name = "seenEpoch")
     private int seenEpoch;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm", timezone = "GMT+2")
     @Column(name = "seenTime")
-    private LocalDateTime seenTime;
+    private Date seenTime;
 
+    @JsonIgnore
     @ManyToOne()
     @JoinColumn(name = "access_point_id")
     private AccessPoint accessPoint;
@@ -112,11 +112,11 @@ public class Observation extends BaseModel {
         this.seenEpoch = seenEpoch;
     }
 
-    public LocalDateTime getSeenTime() {
+    public Date getSeenTime() {
         return seenTime;
     }
 
-    public void setSeenTime(LocalDateTime seenTime) {
+    public void setSeenTime(Date seenTime) {
         this.seenTime = seenTime;
     }
 
@@ -126,5 +126,20 @@ public class Observation extends BaseModel {
 
     public void setAccessPoint(AccessPoint accessPoint) {
         this.accessPoint = accessPoint;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Observation that = (Observation) o;
+
+        return Objects.equals(this.clientMac, that.clientMac);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(clientMac);
     }
 }

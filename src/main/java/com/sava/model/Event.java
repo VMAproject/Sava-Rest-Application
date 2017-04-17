@@ -1,9 +1,11 @@
 package com.sava.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -22,14 +24,15 @@ public class Event {
     @Column(name = "location")
     private String location;
 
-    @JsonFormat(pattern = "dd-MM-yyyy HH:mm")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm", timezone = "GMT+2")
     @Column(name = "date_from")
-    private LocalDateTime dateFrom;
+    private Date dateFrom;
 
-    @JsonFormat(pattern = "dd-MM-yyyy HH:mm")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm", timezone = "GMT+2")
     @Column(name = "date_to")
-    private LocalDateTime dateTo;
+    private Date dateTo;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "event")
     private Set<AccessPoint> accessPoints = new HashSet<>();
 
@@ -60,19 +63,19 @@ public class Event {
         this.location = location;
     }
 
-    public LocalDateTime getDateFrom() {
+    public Date getDateFrom() {
         return dateFrom;
     }
 
-    public void setDateFrom(LocalDateTime dateFrom) {
+    public void setDateFrom(Date dateFrom) {
         this.dateFrom = dateFrom;
     }
 
-    public LocalDateTime getDateTo() {
+    public Date getDateTo() {
         return dateTo;
     }
 
-    public void setDateTo(LocalDateTime dateTo) {
+    public void setDateTo(Date dateTo) {
         this.dateTo = dateTo;
     }
 

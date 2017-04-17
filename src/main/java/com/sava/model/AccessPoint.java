@@ -1,5 +1,7 @@
 package com.sava.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
@@ -10,7 +12,7 @@ import java.util.Set;
 public class AccessPoint implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "access_point_id")
     private Long id;
 
@@ -20,17 +22,21 @@ public class AccessPoint implements Serializable {
     @Column(name = "name")
     private String routerName;
 
+    @JsonIgnore
     @ManyToOne()
     @JoinColumn(name = "event_id")
     private Event event;
 
+    @JsonIgnore
     @ManyToOne()
     @JoinColumn(name = "store_id")
     private Store store;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "accessPoint")
     private Set<Observation> observations = new HashSet<>();
 
+    @JsonIgnore
     @ManyToOne()
     @JoinColumn(name = "network_id")
     private Network network;

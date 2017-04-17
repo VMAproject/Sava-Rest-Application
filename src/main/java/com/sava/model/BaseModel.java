@@ -11,7 +11,7 @@ import java.util.StringJoiner;
 public class BaseModel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
 
     public Long getId() {

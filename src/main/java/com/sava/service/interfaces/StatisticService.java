@@ -7,6 +7,12 @@ import java.util.List;
 
 public interface StatisticService {
 
-    List<Observation> getStoreVisitorsFromEvent(StatisticOptions options);
+    List<Observation> compareOneEventToOneStore(StatisticOptions options);
+
+    List<Observation> compareOneEventToMoreStores(StatisticOptions options);
+
+    List<Observation> compareMoreEventsToOneStore(StatisticOptions options);
+
+    List<Observation> compareMoreEventsToMoreStores(StatisticOptions options);
 
 }

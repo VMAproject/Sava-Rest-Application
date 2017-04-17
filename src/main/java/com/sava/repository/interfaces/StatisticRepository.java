@@ -7,9 +7,12 @@ import java.util.List;
 
 public interface StatisticRepository {
 
-    List<Observation> getUniqueEventVisitors(StatisticOptions options);
+    List<Observation> getUniqueVisitorsFromOneEvent(StatisticOptions options);
 
-    List<Observation> getUniqueStoreVisitorsByEventDateFrom(StatisticOptions options);
+    List<Observation> getUniqueVisitorsFromMoreEvents(StatisticOptions options);
 
+    List<Observation> getUniqueVisitorsFromOneStoreByEventDateFrom(StatisticOptions options);
+
+    List<Observation> getUniqueVisitorsFromMoreStoresByEventDateFrom(StatisticOptions options);
 
 }
