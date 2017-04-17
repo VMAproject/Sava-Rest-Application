@@ -13,10 +13,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v2")
-@Api(   name = "Store API",
-        description = "Provides a list of methods that manage Stores"
-)
+@RequestMapping("/api")
+@Api(name = "Store API", description = "Provides a list of methods that manage Stores")
 public class StoreController {
 
     private StoreRepository storeRepository;
